@@ -4,263 +4,490 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acción Pyme | Soluciones Financieras para Empresas</title>
+    <meta name="description" content="Más de 10 años especializados en leasing financiero y corretaje de seguros para transporte, construcción y movimiento de tierra.">
+    <meta name="keywords" content="leasing financiero, corretaje de seguros, financiamiento empresarial, transporte, construcción, movimiento de tierra">
+    
+    <!-- Preconnect para fuentes externas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload para recursos críticos -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            500: '#1e40af',
+                            600: '#1e3a8a',
+                            700: '#1d4ed8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
         }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilos personalizados -->
+    <style>
+        :root {
+            --primary: #1d4ed8;
+            --primary-dark: #1e40af;
+            --secondary: #1e3a8a;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 50%, var(--primary) 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+        
         .transition-all {
             transition: all 0.3s ease;
         }
+        
         .testimonial-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
         }
+        
         .sector-card {
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
         }
+        
         .floating-button {
             animation: float 3s ease-in-out infinite;
         }
+        
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+        
+        /* Mejoras de accesibilidad */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Optimización para imágenes */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Mejoras en el formulario */
+        input, select, textarea {
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+        }
+        
+        /* Optimización de encabezados */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2;
+        }
+        
+        /* Mejora en el menú móvil */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        #mobile-menu.active {
+            max-height: 500px;
+        }
+        .waves {
+            position: relative;
+            width: 100%;
+            height: 15vh;
+            margin-bottom: -7px;
+            min-height: 100px;
+            max-height: 150px;
+        }
+        .parallax > use {
+            animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+        }
+        .parallax > use:nth-child(1) {
+            animation-delay: -2s;
+            animation-duration: 7s;
+        }
+        .parallax > use:nth-child(2) {
+            animation-delay: -3s;
+            animation-duration: 10s;
+        }
+        .parallax > use:nth-child(3) {
+            animation-delay: -4s;
+            animation-duration: 13s;
+        }
+        .parallax > use:nth-child(4) {
+            animation-delay: -5s;
+            animation-duration: 20s;
+        }
+        @keyframes move-forever {
+            0% { transform: translate3d(-90px,0,0); }
+            100% { transform: translate3d(85px,0,0); }
+        }
+        @media (max-width: 768px) {
+            .waves { height: 40px; min-height: 40px; }
+        }
     </style>
-    <!-- Favicon estándar -->
+    
+    <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/png">
-
-    <!-- Para Apple devices -->
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-    <!-- Para Android -->
-    <link rel="icon" sizes="192x192" href="high-res-icon.png">
-
-    <!-- Opcional: archivo manifest para PWA -->
     <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Schema.org para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Acción Pyme",
+      "description": "Más de 10 años especializados en leasing financiero y corretaje de seguros para transporte, construcción y movimiento de tierra.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Dr. Roberto del Rio 1752",
+        "addressLocality": "Providencia",
+        "addressRegion": "Santiago",
+        "postalCode": "",
+        "addressCountry": "CL"
+      },
+      "telephone": "+56989063949",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "url": "https://accion-pyme.cl",
+      "sameAs": [
+        "https://www.linkedin.com/company/accion-pyme",
+        "https://www.facebook.com/accionpyme",
+        "https://www.instagram.com/accionpyme"
+      ]
+    }
+    </script>
 </head>
-<body class="font-sans antialiased text-gray-800">
-    <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white shadow-md">
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Header mejorado -->
+    <header class="sticky top-0 z-50 bg-white shadow-md transition-all duration-300">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="./assets/img/logo_1.png" alt="Acción Pyme Logo" class="h-32">
-                <div class="ml-3">
-                    <h1 class="text-xl font-bold text-blue-800"></h1>
-                    <p class="text-xs text-gray-600"></p>
-                </div>
-            </div>
-            
-            <nav class="hidden md:flex space-x-8">
-                <a href="#inicio" class="text-blue-900 font-bold hover:text-blue-600 transition-all">Inicio</a>
-                <a href="#servicios" class="text-gray-600 font-bold hover:text-blue-600 transition-all">Servicios</a>
-                <a href="#nosotros" class="text-gray-600 font-bold hover:text-blue-600 transition-all">Nosotros</a>
-                <a href="#experiencia" class="text-gray-600 font-bold hover:text-blue-600 transition-all">Experiencia</a>
-            </nav>
-            
-            <div class="hidden md:block">
-                <a href="#contacto" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition-all shadow-md flex items-center">
-                    <i class="fas fa-phone-alt mr-2"></i> Contáctanos
+                <a href="#inicio" class="flex items-center focus:outline-none focus:ring-2 focus:ring-primary-500 rounded">
+                    <img src="./assets/img/logo_1.png" alt="Acción Pyme Logo" class="h-24 md:h-32 w-auto" loading="lazy">
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-blue-800">ACCIÓN PYME</h1>
+                        <p class="text-xs text-gray-600">Soluciones Financieras</p>
+                    </div>
                 </a>
             </div>
             
-            <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+            <nav class="hidden md:flex space-x-6">
+                <a href="#inicio" class="text-blue-900 font-semibold hover:text-primary-600 transition-all px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">Inicio</a>
+                <a href="#servicios" class="text-gray-700 font-semibold hover:text-primary-600 transition-all px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">Servicios</a>
+                <a href="#nosotros" class="text-gray-700 font-semibold hover:text-primary-600 transition-all px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">Nosotros</a>
+                <a href="#experiencia" class="text-gray-700 font-semibold hover:text-primary-600 transition-all px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">Experiencia</a>
+                <a href="#contacto" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-full font-medium transition-all shadow-md flex items-center focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
+                    <i class="fas fa-phone-alt mr-2"></i> Contáctanos
+                </a>
+            </nav>
+            
+            <button class="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded p-2" id="menu-toggle" aria-label="Menú" aria-expanded="false">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
-
-        <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-white absolute top-16 left-0 right-0 shadow-lg py-4 px-6" id="mobile-menu">
-            <div class="flex flex-col space-y-4">
-                <a href="#inicio" class="text-blue-900 font-medium hover:text-blue-600 transition-all">Inicio</a>
-                <a href="#servicios" class="text-gray-600 hover:text-blue-600 transition-all">Servicios</a>
-                <a href="#nosotros" class="text-gray-600 hover:text-blue-600 transition-all">Nosotros</a>
-                <a href="#experiencia" class="text-gray-600 hover:text-blue-600 transition-all">Experiencia</a>
-                <a href="#contacto" class="text-gray-600 hover:text-blue-600 transition-all">Contacto</a>
-                <a href="#contacto" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition-all text-center">
+        
+        <!-- Mobile Menu mejorado -->
+        <div class="md:hidden bg-white shadow-lg" id="mobile-menu">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#inicio" class="block text-blue-900 font-medium hover:text-primary-600 transition-all px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">Inicio</a>
+                <a href="#servicios" class="block text-gray-700 hover:text-primary-600 transition-all px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">Servicios</a>
+                <a href="#nosotros" class="block text-gray-700 hover:text-primary-600 transition-all px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">Nosotros</a>
+                <a href="#experiencia" class="block text-gray-700 hover:text-primary-600 transition-all px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">Experiencia</a>
+                <a href="#contacto" class="block bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-full font-medium transition-all text-center focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
                     <i class="fas fa-phone-alt mr-2"></i> Contáctanos
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero-gradient text-white py-20 md:py-32">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                    Financiamos <span class="text-blue-200">tu PYME</span>
-                </h1>
-                <p class="text-xl mb-8 text-blue-100 max-w-lg">
-                    Más de 10 años especializados en leasing financiero y corretaje de seguros para los sectores de transporte, construcción y movimiento de tierra.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#servicios" class="bg-white text-blue-800 hover:bg-blue-50 px-8 py-3 rounded-full font-medium transition-all shadow-lg text-center">
-                        <i class="fas fa-search-dollar mr-2"></i> Conoce nuestros servicios
-                    </a>
-                    <a href="#contacto" class="border-2 border-white hover:bg-white hover:bg-opacity-10 px-8 py-3 rounded-full font-medium transition-all text-center">
-                        <i class="fas fa-envelope mr-2"></i> Contacto rápido
-                    </a>
+    <!-- Hero Section mejorada - Ahora con color sólido en lugar de imagen -->
+    <section id="inicio" class="text-white py-16 md:py-24 relative overflow-hidden" style="background-color: #132251;">
+        <!-- Efecto de ondas en la parte inferior -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden" style="z-index: 1;">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.1)" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.2)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(255,255,255,0.4)" />
+                </g>
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-4 relative" style="z-index: 2;">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        <span class="block">Financiamos</span>
+                        <span style="color: #7a9eff;">el crecimiento de tu PYME</span> <!-- Ajusté el color del subtítulo para mejor contraste -->
+                    </h1>
+                    <p class="text-xl mb-8" style="color: #b3c4ff;"> <!-- Color secundario más claro -->
+                        Más de 10 años especializados en leasing financiero y corretaje de seguros para los sectores de transporte, construcción y movimiento de tierra.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#servicios" class="bg-white text-[#132251] hover:bg-blue-50 px-6 py-3 rounded-full font-medium transition-all shadow-lg text-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
+                            <i class="fas fa-search-dollar mr-2"></i> Conoce nuestros servicios
+                        </a>
+                        <a href="#contacto" class="border-2 border-white text-white hover:bg-white hover:bg-opacity-10 px-6 py-3 rounded-full font-medium transition-all text-center focus:outline-none focus:ring-2 focus:ring-white">
+                            <i class="fas fa-envelope mr-2"></i> Contacto rápido
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('./assets/img/camiones.jpeg'); z-index: -1;"></div>
-                <img src="./assets/img/camiones.jpeg" alt="Financiamiento empresarial" class="rounded-xl shadow-2xl max-w-full w-auto h-auto">
+                
+                <div class="lg:w-1/2 mt-8 lg:mt-0">
+                    <div class="relative rounded-xl shadow-2xl overflow-hidden">
+                        <img src="./assets/img/camiones.jpeg" alt="Financiamiento empresarial para transporte de carga" class="w-full h-auto object-cover" loading="lazy" width="600" height="400">
+                        <div class="absolute inset-0" style="background-color: rgba(19, 34, 81, 0.2);"></div> <!-- Overlay con el mismo color pero transparente -->
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust Badges -->
-    <div class="bg-gray-50 py-8">
+    <!-- Trust Badges mejorados -->
+    <div class="bg-gray-50 py-8 border-b border-gray-200">
         <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-blue-800">10+</div>
-                    <div class="text-gray-600">Años de experiencia</div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100">
+                    <div class="text-4xl font-bold text-primary-600 mb-2">10+</div>
+                    <div class="text-gray-600 font-medium">Años de experiencia</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-blue-800">100%</div>
-                    <div class="text-gray-600">Enfoque personalizado</div>
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100">
+                    <div class="text-4xl font-bold text-primary-600 mb-2">100%</div>
+                    <div class="text-gray-600 font-medium">Enfoque personalizado</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-blue-800">3</div>
-                    <div class="text-gray-600">Sectores especializados</div>
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100">
+                    <div class="text-4xl font-bold text-primary-600 mb-2">3</div>
+                    <div class="text-gray-600 font-medium">Sectores especializados</div>
                 </div>
-                            </div>
+            </div>
         </div>
     </div>
 
-    <!-- Sectores Especializados -->
+    <!-- Sectores Especializados mejorados -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sectores <span class="text-blue-600">Especializados</span></h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Nuestra experiencia se concentra en industrias clave para el desarrollo económico del país.
+            <div class="text-center mb-12 max-w-3xl mx-auto">
+                <span class="inline-block px-3 py-1 text-sm font-semibold text-primary-600 bg-primary-50 rounded-full mb-3">Sectores Clave</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Especializados en <span class="text-primary-600">tu industria</span></h2>
+                <p class="text-lg text-gray-600">
+                    Nuestra experiencia se concentra en industrias clave para el desarrollo económico del país, con soluciones adaptadas a cada sector.
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Sector 1 -->
-                <div class="sector-card rounded-xl p-8 shadow-lg transition-all card-hover border border-gray-200">
-                    <div class="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                        <i class="fas fa-truck text-blue-600 text-2xl"></i>
+                <div class="sector-card rounded-xl p-8 shadow-lg transition-all card-hover border border-gray-100 hover:border-primary-100">
+                    <div class="bg-primary-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-truck text-primary-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Transporte</h3>
-                    <p class="text-gray-600">
+                    <p class="text-gray-600 mb-4">
                         Financiamiento de todo tipo de vehículos de transporte de carga y pasajeros, con condiciones flexibles y adaptadas a las necesidades de cada cliente.
                     </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary-500 mr-2"></i> Camiones y trailers</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary-500 mr-2"></i> Flotas completas</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary-500 mr-2"></i> Equipos especializados</li>
+                    </ul>
                 </div>
                 
                 <!-- Sector 2 -->
-                <div class="sector-card rounded-xl p-8 shadow-lg transition-all card-hover border border-gray-200">
-                    <div class="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                        <i class="fas fa-hard-hat text-blue-600 text-2xl"></i>
+                <div class="sector-card rounded-xl p-8 shadow-lg transition-all card-hover border border-gray-100 hover:border-primary-100">
+                    <div class="bg-primary-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-hard-hat text-primary-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Construcción</h3>
-                    <p class="text-gray-600">
+                    <p class="text-gray-600 mb-4">
                         Financiamiento para maquinaria pesada y equipos de construcción, con planes flexibles que se ajustan a los tiempos de tus proyectos.
                     </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary-500 mr-2"></i> Excavadoras y grúas</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary-500 mr-2"></i> Equipos de hormigón</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary-500 mr-2"></i> Maquinaria especializada</li>
+                    </ul>
                 </div>
                 
                 <!-- Sector 3 -->
-                <div class="sector-card rounded-xl p-8 shadow-lg transition-all card-hover border border-gray-200">
-                    <div class="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                        <i class="fas fa-tractor text-blue-600 text-2xl"></i>
+                <div class="sector-card rounded-xl p-8 shadow-lg transition-all card-hover border border-gray-100 hover:border-primary-100">
+                    <div class="bg-primary-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-tractor text-primary-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Movimiento de Tierra</h3>
-                    <p class="text-gray-600">
+                    <p class="text-gray-600 mb-4">
                         Alternativas de financiamiento para equipos de movimiento de tierra, de acuerdo a las necesidades de cada proyecto y cliente.
                     </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary-500 mr-2"></i> Bulldozers y motoniveladoras</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary-500 mr-2"></i> Cargadores frontales</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary-500 mr-2"></i> Compactadores</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Servicios -->
+    <!-- Servicios mejorados -->
     <section id="servicios" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nuestros <span class="text-blue-600">Servicios</span></h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Soluciones financieras diseñadas para potenciar el crecimiento de tu empresa.
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <span class="inline-block px-3 py-1 text-sm font-semibold text-primary-600 bg-primary-50 rounded-full mb-3">Nuestras Soluciones</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Servicios <span class="text-primary-600">Financieros</span></h2>
+                <p class="text-lg text-gray-600">
+                    Soluciones diseñadas para potenciar el crecimiento de tu empresa, con alternativas adaptadas a tus necesidades específicas.
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Servicio 1 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all card-hover border border-gray-100">
-                    <div class="h-48 bg-blue-600 flex items-center justify-center">
-                        <i class="fas fa-handshake text-white text-5xl"></i>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all card-hover border border-gray-100 hover:border-primary-100">
+                    <div class="h-48 bg-gradient-to-r from-primary-600 to-primary-800 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-handshake text-white text-5xl z-10"></i>
+                        <div class="absolute inset-0 bg-white opacity-10"></div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Intermediación Financiera</h3>
-                        <p class="text-gray-600 mb-4">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-chart-line text-primary-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Intermediación Financiera</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">
                             Gestión experta para encontrar la alternativa de financiamiento óptima en la adquisición de activos (maquinaria, vehículos e inmuebles).
                         </p>
-                        <ul class="text-gray-600 mb-4 space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-                                <span>Leasing financiero e inmobiliario</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-                                <span>Créditos para capital de trabajo</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-                                <span>Refinanciamiento de activos fijos (Leaseback)</span>
-                            </li>
-                        </ul>
-                        <a href="#contacto" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
-                            Solicitar información <i class="fas fa-arrow-right ml-2"></i>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-gray-800 mb-3">Beneficios clave:</h4>
+                            <ul class="text-gray-600 space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                                    <span><strong>Leasing financiero e inmobiliario:</strong> Adquiere activos sin comprometer tu capital de trabajo</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                                    <span><strong>Créditos para capital de trabajo:</strong> Liquidez inmediata para tus operaciones</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                                    <span><strong>Refinanciamiento de activos fijos (Leaseback):</strong> Libera capital atrapado en tus activos</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="#contacto" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-800 group focus:outline-none focus:ring-2 focus:ring-primary-500 rounded">
+                            Solicitar información
+                            <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Servicio 2 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all card-hover border border-gray-100">
-                    <div class="h-48 bg-blue-700 flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-white text-5xl"></i>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all card-hover border border-gray-100 hover:border-primary-100">
+                    <div class="h-48 bg-gradient-to-r from-primary-700 to-primary-900 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-shield-alt text-white text-5xl z-10"></i>
+                        <div class="absolute inset-0 bg-white opacity-10"></div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Corretaje de Seguros</h3>
-                        <p class="text-gray-600 mb-4">
-                            Protección integral para tu empresa con las mejores coberturas del mercado.
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-umbrella text-primary-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Corretaje de Seguros</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">
+                            Protección integral para tu empresa con las mejores coberturas del mercado, diseñadas específicamente para tus riesgos operacionales.
                         </p>
-                        <ul class="text-gray-600 mb-4 space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-                                <span>Responsabilidad Civil</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-                                <span>Daños Propios</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-                                <span>Accidentes Personales</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-                                <span>Incendio y Sismo</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-                                <span>Todo Riesgo Construcción</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-                                <span>Transporte de Carga</span>
-                            </li>
-                        </ul>
-                        <a href="#contacto" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
-                            Cotizar seguros <i class="fas fa-arrow-right ml-2"></i>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-gray-800 mb-3">Coberturas principales:</h4>
+                            <ul class="text-gray-600 space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                                    <span><strong>Responsabilidad Civil:</strong> Protección contra reclamos de terceros</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                                    <span><strong>Daños Propios:</strong> Cobertura para tus activos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                                    <span><strong>Accidentes Personales:</strong> Protección para tu personal</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                                    <span><strong>Incendio y Sismo:</strong> Cobertura para riesgos catastróficos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                                    <span><strong>Todo Riesgo Construcción:</strong> Seguro para obras en ejecución</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                                    <span><strong>Transporte de Carga:</strong> Protección para tus mercancías</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="#contacto" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-800 group focus:outline-none focus:ring-2 focus:ring-primary-500 rounded">
+                            Cotizar seguros
+                            <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
                         </a>
                     </div>
                 </div>
@@ -268,37 +495,47 @@
         </div>
     </section>
 
-    <!-- Sobre Nosotros -->
+    <!-- Sobre Nosotros mejorado -->
     <section id="nosotros" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
-                    <img src="./assets/img/asesoria.jpg" alt="Equipo Acción Pyme" class="rounded-xl shadow-xl w-full">
+                    <div class="relative rounded-xl shadow-xl overflow-hidden">
+                        <img src="./assets/img/asesoria.jpg" alt="Equipo de Acción Pyme asesorando a un cliente" class="w-full h-auto object-cover" loading="lazy" width="600" height="400">
+                        <div class="absolute inset-0 bg-primary-600 opacity-20"></div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                            <h3 class="text-white font-bold text-lg">Asesoría personalizada</h3>
+                            <p class="text-blue-100 text-sm">Soluciones adaptadas a cada cliente</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="lg:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Quiénes <span class="text-blue-600">Somos</span></h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Somos una empresa con una sólida experiencia de más de 10 años en el ámbito financiero y comercial. Nos especializamos en brindar soluciones financieras adaptadas a las necesidades de las empresas en los sectores de transporte, construcción y movimiento de tierra.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-8">
-                        Nuestro enfoque se centra en el Leasing Financiero, donde hemos desarrollado un profundo conocimiento y nos hemos posicionado como expertos en esta modalidad de financiamiento.
-                    </p>
+                    <span class="inline-block px-3 py-1 text-sm font-semibold text-primary-600 bg-primary-50 rounded-full mb-3">Nuestra Empresa</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Quiénes <span class="text-primary-600">Somos</span></h2>
+                    <div class="prose prose-lg text-gray-600 mb-8">
+                        <p>
+                            Somos una empresa con una sólida experiencia de más de 10 años en el ámbito financiero y comercial. Nos especializamos en brindar soluciones financieras adaptadas a las necesidades de las empresas en los sectores de transporte, construcción y movimiento de tierra.
+                        </p>
+                        <p>
+                            Nuestro enfoque se centra en el <strong>Leasing Financiero</strong>, donde hemos desarrollado un profundo conocimiento y nos hemos posicionado como expertos en esta modalidad de financiamiento, ayudando a cientos de empresas a crecer de manera sostenible.
+                        </p>
+                    </div>
                     
-                    <div class="bg-blue-50 rounded-xl p-6 mb-8">
-                        <h3 class="text-xl font-bold text-blue-800 mb-4">Ventajas de operar con nosotros</h3>
+                    <div class="bg-primary-50 rounded-xl p-6 mb-8 border border-primary-100">
+                        <h3 class="text-xl font-bold text-primary-800 mb-4">¿Por qué elegirnos?</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="flex items-start">
-                                <div class="bg-blue-100 p-2 rounded-full mr-3">
-                                    <i class="fas fa-check text-blue-600"></i>
+                                <div class="bg-primary-100 p-2 rounded-full mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-primary-600"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 mb-1">Experiencia consolidada</h4>
-                                    <p class="text-gray-600 text-sm">En el campo financiero y comercial</p>
+                                    <p class="text-gray-600 text-sm">Más de una década en el campo financiero y comercial</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="bg-blue-100 p-2 rounded-full mr-3">
-                                    <i class="fas fa-check text-blue-600"></i>
+                                <div class="bg-primary-100 p-2 rounded-full mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-primary-600"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 mb-1">Especialización sectorial</h4>
@@ -306,104 +543,150 @@
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="bg-blue-100 p-2 rounded-full mr-3">
-                                    <i class="fas fa-check text-blue-600"></i>
+                                <div class="bg-primary-100 p-2 rounded-full mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-primary-600"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 mb-1">Soluciones personalizadas</h4>
-                                    <p class="text-gray-600 text-sm">Adaptadas a cada necesidad</p>
+                                    <p class="text-gray-600 text-sm">Adaptadas a cada necesidad y capacidad financiera</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="bg-blue-100 p-2 rounded-full mr-3">
-                                    <i class="fas fa-check text-blue-600"></i>
+                                <div class="bg-primary-100 p-2 rounded-full mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-primary-600"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 mb-1">Amplia red de aliados</h4>
-                                    <p class="text-gray-600 text-sm">Colaboradores y alianzas estratégicas</p>
+                                    <p class="text-gray-600 text-sm">Colaboradores y alianzas estratégicas en todo el país</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <a href="#contacto" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-all shadow-md">
-                        <i class="fas fa-comments mr-2"></i> Conversemos sobre tu proyecto
-                    </a>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contacto" class="inline-flex items-center justify-center bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-full font-medium transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
+                            <i class="fas fa-comments mr-2"></i> Conversemos sobre tu proyecto
+                        </a>
+                        <a href="tel:+56989063949" class="inline-flex items-center justify-center border border-primary-600 text-primary-600 hover:bg-primary-50 px-6 py-3 rounded-full font-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
+                            <i class="fas fa-phone-alt mr-2"></i> Llamar ahora
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Nuestra Experiencia -->
+    <!-- Nuestra Experiencia mejorada -->
     <section id="experiencia" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nuestra <span class="text-blue-600">Experiencia</span></h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Conoce nuestro recorrido y especialización.
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <span class="inline-block px-3 py-1 text-sm font-semibold text-primary-600 bg-primary-50 rounded-full mb-3">Nuestro Valor</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Experiencia y <span class="text-primary-600">Enfoque</span></h2>
+                <p class="text-lg text-gray-600">
+                    Conoce nuestro recorrido y lo que nos diferencia en el mercado financiero.
                 </p>
             </div>
             
-            <div class="flex flex-col lg:flex-row items-stretch">
-                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-6">
+            <div class="flex flex-col lg:flex-row items-stretch gap-8">
+                <div class="lg:w-1/2">
                     <div class="bg-white rounded-xl shadow-lg p-8 h-full flex flex-col">
-                        <h3 class="text-2xl font-bold text-blue-800 mb-6">Trayectoria Comprobada</h3>
-                        <p class="text-gray-600 mb-6">
-                            A lo largo de nuestra trayectoria, hemos acompañado a una amplia cartera de clientes en el diseño e implementación de soluciones de financiamiento estratégicas, adaptadas a sus necesidades y alineadas con su capacidad financiera, generando valor sostenible y potenciando su crecimiento.
-                        </p>
-                        <p class="text-gray-600 mb-6">
-                            Nos enorgullece destacar que hemos concentrado gran parte de nuestra atención en el Norte del país, estableciendo una sólida base de clientes en esta región.
-                        </p>
-                        <p class="text-gray-600">
-                            Esta cercanía geográfica nos ha permitido conocer de primera mano los desafíos y particularidades del entorno empresarial regional, posicionándonos como un socio estratégico confiable para impulsar el desarrollo y crecimiento de las empresas en esta zona.
-                        </p>
+                        <div class="flex items-center mb-6">
+                            <div class="bg-primary-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-history text-primary-600"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Trayectoria Comprobada</h3>
+                        </div>
+                        <div class="prose prose-lg text-gray-600 mb-6">
+                            <p>
+                                A lo largo de nuestra trayectoria, hemos acompañado a una amplia cartera de clientes en el diseño e implementación de soluciones de financiamiento estratégicas, adaptadas a sus necesidades y alineadas con su capacidad financiera, generando valor sostenible y potenciando su crecimiento.
+                            </p>
+                        </div>
+                        <div class="prose prose-lg text-gray-600">
+                            <p>
+                                Nos enorgullece destacar que hemos concentrado gran parte de nuestra atención en el <strong>Norte del país</strong>, estableciendo una sólida base de clientes en esta región. Esta cercanía geográfica nos ha permitido conocer de primera mano los desafíos y particularidades del entorno empresarial regional.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="lg:w-1/2 lg:pl-6">
-                    <div class="bg-blue-600 text-white rounded-xl shadow-lg p-8 h-full flex flex-col">
-                        <h3 class="text-2xl font-bold text-white mb-6">Nuestro Enfoque</h3>
+                <div class="lg:w-1/2">
+                    <div class="bg-gradient-to-br from-primary-600 to-primary-800 text-white rounded-xl shadow-lg p-8 h-full flex flex-col">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-white bg-opacity-20 p-3 rounded-full mr-4">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Nuestro Enfoque</h3>
+                        </div>
                         <div class="space-y-6">
                             <div class="flex items-start">
-                                <div class="bg-blue-500 p-3 rounded-full mr-4">
-                                    <i class="fas fa-bullseye text-white"></i>
+                                <div class="bg-white bg-opacity-20 p-3 rounded-full mr-4 flex-shrink-0">
+                                    <i class="fas fa-industry"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white mb-1">Especialización Sectorial</h4>
-                                    <p class="text-blue-100">Conocimiento profundo de los sectores transporte, construcción y movimiento de tierra.</p>
+                                    <h4 class="font-bold text-white mb-2">Especialización Sectorial</h4>
+                                    <p class="text-blue-100">
+                                        Conocimiento profundo de los sectores transporte, construcción y movimiento de tierra, lo que nos permite ofrecer soluciones realmente adaptadas a las necesidades de cada industria.
+                                    </p>
                                 </div>
                             </div>
-                          
+                            
                             <div class="flex items-start">
-                                <div class="bg-blue-500 p-3 rounded-full mr-4">
-                                    <i class="fas fa-user-tie text-white"></i>
+                                <div class="bg-white bg-opacity-20 p-3 rounded-full mr-4 flex-shrink-0">
+                                    <i class="fas fa-user-tie"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white mb-1">Asesoría Personalizada</h4>
-                                    <p class="text-blue-100">Soluciones financieras diseñadas específicamente para cada cliente.</p>
+                                    <h4 class="font-bold text-white mb-2">Asesoría Personalizada</h4>
+                                    <p class="text-blue-100">
+                                        Soluciones financieras diseñadas específicamente para cada cliente, considerando su situación particular, objetivos comerciales y capacidad financiera.
+                                    </p>
                                 </div>
                             </div>
+                            
                             <div class="flex items-start">
-                                <div class="bg-blue-500 p-3 rounded-full mr-4">
-                                    <i class="fas fa-handshake text-white"></i>
+                                <div class="bg-white bg-opacity-20 p-3 rounded-full mr-4 flex-shrink-0">
+                                    <i class="fas fa-handshake"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white mb-1">Relación a Largo Plazo</h4>
-                                    <p class="text-blue-100">Nos convertimos en socios estratégicos de nuestros clientes.</p>
+                                    <h4 class="font-bold text-white mb-2">Relación a Largo Plazo</h4>
+                                    <p class="text-blue-100">
+                                        Nos convertimos en socios estratégicos de nuestros clientes, acompañándolos en su crecimiento y evolucionando nuestras soluciones según sus necesidades cambiantes.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <!-- Estadísticas adicionales -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
+                    <div class="text-5xl font-bold text-primary-600 mb-3">+50</div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Clientes Satisfechos</h4>
+                    <p class="text-gray-600">Empresas que confían en nuestros servicios</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
+                    <div class="text-5xl font-bold text-primary-600 mb-3">+100MM</div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">En Activos Financiados</h4>
+                    <p class="text-gray-600">Maquinaria, vehículos e inmuebles</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
+                    <div class="text-5xl font-bold text-primary-600 mb-3">90%</div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Tasa de Renovación</h4>
+                    <p class="text-gray-600">Clientes que repiten con nosotros</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Testimonios -->
-    <section class="py-20 bg-blue-900 text-white">
+    <!-- Testimonios mejorados -->
+    <section class="py-20 bg-primary-900 text-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Confían en <span class="text-blue-200">nosotros</span></h2>
-                <p class="text-xl text-blue-200 max-w-2xl mx-auto">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <span class="inline-block px-3 py-1 text-sm font-semibold text-primary-200 bg-primary-700 bg-opacity-50 rounded-full mb-3">Testimonios</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Confían en <span class="text-primary-200">nosotros</span></h2>
+                <p class="text-xl text-primary-200">
                     Empresas que han trabajado con Acción Pyme y recomiendan nuestros servicios.
                 </p>
             </div>
@@ -412,16 +695,17 @@
                 <!-- Testimonio 1 -->
                 <div class="testimonial-card rounded-xl p-8 shadow-lg transition-all card-hover">
                     <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Cliente satisfecho" class="w-full h-full object-cover">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-primary-100">
+                            <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Roberto Sánchez - Transportes del Norte" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-900">Roberto Sánchez</h4>
-                            <p class="text-blue-600">Gerente - Transportes del Norte</p>
+                            <p class="text-primary-600">Gerente - Transportes del Norte</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 italic mb-6">
-                        "Gracias al leasing financiero que gestionó Acción Pyme, pudimos renovar nuestra flota de camiones sin afectar nuestro capital de trabajo. Excelente asesoría."
+                    <p class="text-gray-700 italic mb-6 relative pl-6">
+                        <i class="fas fa-quote-left text-primary-300 absolute left-0 top-0"></i>
+                        "Gracias al leasing financiero que gestionó Acción Pyme, pudimos renovar nuestra flota de camiones sin afectar nuestro capital de trabajo. Su conocimiento del sector transporte fue clave para estructurar una solución que se ajustara a nuestros flujos."
                     </p>
                     <div class="flex text-yellow-400">
                         <i class="fas fa-star"></i>
@@ -435,16 +719,17 @@
                 <!-- Testimonio 2 -->
                 <div class="testimonial-card rounded-xl p-8 shadow-lg transition-all card-hover">
                     <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente satisfecho" class="w-full h-full object-cover">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-primary-100">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="María Inés López - Constructora Andina" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-900">María Inés López</h4>
-                            <p class="text-blue-600">Directora - Constructora Andina</p>
+                            <p class="text-primary-600">Directora - Constructora Andina</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 italic mb-6">
-                        "El equipo de Acción Pyme entendió perfectamente nuestras necesidades y nos consiguió las mejores condiciones para financiar nuestra nueva maquinaria."
+                    <p class="text-gray-700 italic mb-6 relative pl-6">
+                        <i class="fas fa-quote-left text-primary-300 absolute left-0 top-0"></i>
+                        "El equipo de Acción Pyme entendió perfectamente nuestras necesidades y nos consiguió las mejores condiciones para financiar nuestra nueva maquinaria. Su servicio post-venta y seguimiento es excepcional, realmente se preocupan por sus clientes."
                     </p>
                     <div class="flex text-yellow-400">
                         <i class="fas fa-star"></i>
@@ -458,16 +743,17 @@
                 <!-- Testimonio 3 -->
                 <div class="testimonial-card rounded-xl p-8 shadow-lg transition-all card-hover">
                     <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Cliente satisfecho" class="w-full h-full object-cover">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-primary-100">
+                            <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Carlos Méndez - Movimientos de Tierra Norte" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-900">Carlos Méndez</h4>
-                            <p class="text-blue-600">Dueño - Movimientos de Tierra Norte</p>
+                            <p class="text-primary-600">Dueño - Movimientos de Tierra Norte</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 italic mb-6">
-                        "Como empresa del norte, valoramos mucho que Acción Pyme conozca las particularidades de nuestra zona. Su servicio de leaseback nos salvó en un momento difícil."
+                    <p class="text-gray-700 italic mb-6 relative pl-6">
+                        <i class="fas fa-quote-left text-primary-300 absolute left-0 top-0"></i>
+                        "Como empresa del norte, valoramos mucho que Acción Pyme conozca las particularidades de nuestra zona. Su servicio de leaseback nos salvó en un momento difícil, permitiéndonos liberar capital sin perder el uso de nuestros equipos."
                     </p>
                     <div class="flex text-yellow-400">
                         <i class="fas fa-star"></i>
@@ -481,112 +767,132 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA Section mejorada -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="bg-blue-600 rounded-2xl shadow-xl p-12 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">¿Listo para potenciar tu empresa?</h2>
-                <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                    Descubre cómo nuestras soluciones financieras pueden ayudarte a crecer sin comprometer tu capital de trabajo.
-                </p>
-                <a href="#contacto" class="inline-block bg-white text-blue-800 hover:bg-blue-50 px-8 py-3 rounded-full font-medium transition-all shadow-lg">
-                    <i class="fas fa-calendar-check mr-2"></i> Agendar reunión
-                </a>
+            <div class="bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl shadow-xl p-8 md:p-12 text-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-white opacity-5"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">¿Listo para potenciar tu empresa?</h2>
+                    <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+                        Descubre cómo nuestras soluciones financieras pueden ayudarte a crecer sin comprometer tu capital de trabajo.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contacto" class="inline-flex items-center justify-center bg-white text-primary-700 hover:bg-blue-50 px-6 py-3 rounded-full font-medium transition-all shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600">
+                            <i class="fas fa-calendar-check mr-2"></i> Agendar reunión
+                        </a>
+                        <a href="tel:+56989063949" class="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white hover:bg-opacity-10 px-6 py-3 rounded-full font-medium transition-all focus:outline-none focus:ring-2 focus:ring-white">
+                            <i class="fas fa-phone-alt mr-2"></i> Llamar ahora
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
+    <!-- Contacto mejorado -->
     <section id="contacto" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row">
-                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Contáctanos</h2>
-                    <p class="text-lg text-gray-600 mb-8">
-                        Estamos listos para ayudarte a encontrar la mejor solución financiera para tu empresa. Completa el formulario y nos pondremos en contacto contigo a la brevedad.
-                    </p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-map-marker-alt text-blue-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900 mb-1">Oficina Central</h4>
-                                <p class="text-gray-600">Dr. Roberto del Rio 1752, Providencia, Santiago</p>
-                            </div>
-                        </div>
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <div class="bg-white rounded-xl shadow-lg p-8 h-full">
+                        <span class="inline-block px-3 py-1 text-sm font-semibold text-primary-600 bg-primary-50 rounded-full mb-3">Contáctanos</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Hablemos sobre <span class="text-primary-600">tu proyecto</span></h2>
+                        <p class="text-lg text-gray-600 mb-8">
+                            Estamos listos para ayudarte a encontrar la mejor solución financiera para tu empresa. Completa el formulario y nos pondremos en contacto contigo a la brevedad.
+                        </p>
                         
-                        <div class="flex items-start">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-phone-alt text-blue-600 text-xl"></i>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-primary-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Oficina Central</h4>
+                                    <p class="text-gray-600">Dr. Roberto del Rio 1752, Providencia, Santiago</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900 mb-1">Teléfono</h4>
-                                <p class="text-gray-600">+56 9 8906 3949</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope text-blue-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900 mb-1">Email</h4>
-                                <p class="text-gray-600">contacto@accion-pyme.cl</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
                             
+                            <div class="flex items-start">
+                                <div class="bg-primary-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone-alt text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Teléfono</h4>
+                                    <p class="text-gray-600">
+                                        <a href="tel:+56989063949" class="hover:text-primary-600 transition-colors">+56 9 8906 3949</a>
+                                    </p>
+                                </div>
+                            </div>
                             
+                            <div class="flex items-start">
+                                <div class="bg-primary-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Email</h4>
+                                    <p class="text-gray-600">
+                                        <a href="mailto:contacto@accion-pyme.cl" class="hover:text-primary-600 transition-colors">contacto@accion-pyme.cl</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                    <i class="fas fa-clock text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Horario de atención</h4>
+                                    <p class="text-gray-600">Lunes a Viernes: 9:00 - 18:00 hrs</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="mt-8">
-                        <h4 class="font-bold text-gray-900 mb-4">Síguenos en redes sociales</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-all">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition-all">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="bg-blue-800 text-white p-3 rounded-full hover:bg-blue-900 transition-all">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition-all">
-                                <i class="fab fa-instagram"></i>
-                            </a>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-gray-900 mb-4">Síguenos en redes sociales</h4>
+                            <div class="flex space-x-3">
+                                <a href="#" class="bg-primary-600 text-white p-3 rounded-full hover:bg-primary-700 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-blue-800 text-white p-3 rounded-full hover:bg-blue-900 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition-all focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="lg:w-1/2">
-                    <form class="bg-white rounded-xl shadow-lg p-8">
+                    <form class="bg-white rounded-xl shadow-lg p-8" id="contact-form">
                         <div class="mb-6">
                             <label for="nombre" class="block text-gray-700 font-medium mb-2">Nombre completo *</label>
-                            <input type="text" id="nombre" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ingresa tu nombre" required>
+                            <input type="text" id="nombre" name="nombre" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Ingresa tu nombre" required>
                         </div>
                         
                         <div class="mb-6">
                             <label for="email" class="block text-gray-700 font-medium mb-2">Correo electrónico *</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ingresa tu email" required>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Ingresa tu email" required>
                         </div>
                         
                         <div class="mb-6">
                             <label for="telefono" class="block text-gray-700 font-medium mb-2">Teléfono *</label>
-                            <input type="tel" id="telefono" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ingresa tu teléfono" required>
+                            <input type="tel" id="telefono" name="telefono" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Ingresa tu teléfono" required>
                         </div>
                         
                         <div class="mb-6">
                             <label for="empresa" class="block text-gray-700 font-medium mb-2">Empresa *</label>
-                            <input type="text" id="empresa" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Nombre de tu empresa" required>
+                            <input type="text" id="empresa" name="empresa" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Nombre de tu empresa" required>
                         </div>
                         
                         <div class="mb-6">
                             <label for="servicio" class="block text-gray-700 font-medium mb-2">Servicio de interés *</label>
-                            <select id="servicio" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                            <select id="servicio" name="servicio" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" required>
                                 <option value="">Selecciona un servicio</option>
                                 <option value="leasing">Leasing Financiero</option>
                                 <option value="inmobiliario">Leasing Inmobiliario</option>
@@ -599,10 +905,21 @@
                         
                         <div class="mb-6">
                             <label for="mensaje" class="block text-gray-700 font-medium mb-2">Mensaje</label>
-                            <textarea id="mensaje" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Cuéntanos cómo podemos ayudarte"></textarea>
+                            <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Cuéntanos cómo podemos ayudarte"></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all shadow-md">
+                        <div class="mb-6">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="privacidad" name="privacidad" type="checkbox" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-gray-300 rounded" required>
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="privacidad" class="text-gray-600">Acepto la <a href="#" class="text-primary-600 hover:underline">Política de Privacidad</a></label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-all shadow-md flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
                             <i class="fas fa-paper-plane mr-2"></i> Enviar mensaje
                         </button>
                     </form>
@@ -611,83 +928,201 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <!-- Footer mejorado -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="flex items-center mb-4">
-                        <img src="./assets/img/logo_1.png" alt="Acción Pyme Logo" class="h-20 mr-3">
+                        <img src="./assets/img/logo_1.png" alt="Acción Pyme Logo" class="h-16 mr-3" loading="lazy">
                         <div>
                             <h1 class="text-lg font-bold">ACCIÓN PYME</h1>
                             <p class="text-xs text-gray-400">Soluciones Financieras Especializadas</p>
                         </div>
                     </div>
-                    
+                    <p class="text-gray-400 text-sm mb-4">
+                        Más de 10 años brindando soluciones financieras personalizadas para empresas.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
-                        
- 
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Servicios</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Leasing Financiero</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Leasing Inmobiliario</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Crédito Capital de Trabajo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Refinanciamiento (Leaseback)</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Corretaje de Seguros</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Sectores</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Transporte</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Construcción</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Movimiento de Tierra</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gray-400 mt-1 mr-2"></i>
+                            <span class="text-gray-400">Dr. Roberto del Rio 1752, Providencia, Santiago</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-gray-400 mr-2"></i>
+                            <a href="tel:+56989063949" class="text-gray-400 hover:text-white transition-colors">+56 9 8906 3949</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-2"></i>
+                            <a href="mailto:contacto@accion-pyme.cl" class="text-gray-400 hover:text-white transition-colors">contacto@accion-pyme.cl</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
                     &copy; 2025 Acción Pyme SpA. Todos los derechos reservados.
                 </p>
-                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Términos y Condiciones</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Política de Privacidad</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
+    <!-- Floating WhatsApp Button mejorado -->
     <div class="fixed bottom-6 right-6 z-50">
-        <a href="https://wa.me/56989063949" target="_blank" class="floating-button bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-xl flex items-center justify-center transition-all">
+        <a href="https://wa.me/56989063949" target="_blank" class="floating-button bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-xl flex items-center justify-center transition-all focus:outline-none focus:ring-2 focus:ring-green-500" aria-label="Contactar por WhatsApp">
             <i class="fab fa-whatsapp text-2xl"></i>
         </a>
     </div>
 
     <script>
-        // Mobile menu toggle
+        // Mobile menu toggle mejorado
         document.getElementById('menu-toggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'false' ? 'true' : 'false');
+            document.getElementById('mobile-menu').classList.toggle('active');
         });
 
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for anchor links mejorado
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
                 const targetElement = document.querySelector(targetId);
+                
                 if (targetElement) {
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
+                    // Cerrar menú móvil si está abierto
+                    const menuToggle = document.getElementById('menu-toggle');
+                    if (menuToggle.getAttribute('aria-expanded') === 'true') {
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        document.getElementById('mobile-menu').classList.remove('active');
                     }
                     
+                    // Scroll suave
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    
+                    // Actualizar URL sin recargar la página
+                    if (history.pushState) {
+                        history.pushState(null, null, targetId);
+                    } else {
+                        location.hash = targetId;
+                    }
                 }
             });
         });
 
-        // Form submission (example)
-        const contactForm = document.querySelector('form');
+        // Form submission mejorado con validación
+        const contactForm = document.getElementById('contact-form');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Here you would typically send the form data to your server
-                // For this example, we'll just show an alert
-                alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
-                this.reset();
+                // Validación simple
+                const requiredFields = this.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        field.classList.remove('border-red-500');
+                    }
+                });
+                
+                if (!isValid) {
+                    alert('Por favor completa todos los campos obligatorios.');
+                    return;
+                }
+                
+                // Simular envío (en producción, aquí iría la llamada AJAX)
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalText = submitButton.innerHTML;
+                
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Enviando...';
+                
+                setTimeout(() => {
+                    // Aquí normalmente se enviaría el formulario con fetch o AJAX
+                    alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+                    this.reset();
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                }, 1500);
             });
         }
+
+        // Animación para elementos al hacer scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.card-hover, .transition-all');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        };
+
+        // Ejecutar al cargar y al hacer scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Mejorar accesibilidad del menú
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const menuToggle = document.getElementById('menu-toggle');
+                if (menuToggle.getAttribute('aria-expanded') === 'true') {
+                    menuToggle.click();
+                    menuToggle.focus();
+                }
+            }
+        });
     </script>
 </body>
 </html>
