@@ -1,0 +1,135 @@
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Variables */
+:root {
+  --primary: #1d4ed8;
+  --primary-dark: #1e40af;
+  --secondary: #1e3a8a;
+}
+
+/* Base styles */
+body {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Componentes */
+.hero-gradient {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 50%, var(--primary) 100%);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.sector-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+/* Animaciones */
+.floating-button {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+.parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+.parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+.parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+
+@keyframes move-forever {
+  0% { transform: translate3d(-90px, 0, 0); }
+  100% { transform: translate3d(85px, 0, 0); }
+}
+
+/* Mejoras de accesibilidad */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Optimización responsive */
+@media (max-width: 768px) {
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+  
+  #mobile-menu {
+    transition: height 0.3s ease;
+    height: 0;
+  }
+  
+  #mobile-menu.active {
+    height: auto;
+    max-height: 100vh;
+  }
+}
+
+/* Mejoras de formulario */
+input, select, textarea {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+}
+
+/* Mejoras visuales */
+.sector-card:hover .sector-icon {
+  transform: rotate(360deg);
+  transition: transform 0.5s ease;
+}
+
+/* Estilos para el menú móvil */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+#mobile-menu.active {
+  max-height: 500px;
+}
+
+/* Asegura que el header tenga posición relativa */
+header {
+    position: relative;
+}
